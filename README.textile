@@ -1,0 +1,79 @@
+h1. MessageCom
+
+Version 0.1
+
+h2. _What is it? / Was ist das?_
+
+MessageCom is a library to facilitate communication between devices.
+MessageCom is purposeful and has a simple design.
+--
+MessageCom ist eine Library um Kommunikation zwischen Geräten zu erleichtern.
+MessageCom ist zweckorientiert und hat ein einfaches design.
+
+h2. _How does it work? / Wie funktioniert es?_
+
+This library simplifies the modeling of data.
+The result is a string that contains the desired data, including additional information.
+This string can be sent as usual.
+The communication is still taking place via the given medium.
+On the receiver side, the string is interpreted and the information can be extracted with methods according to the given requirements.
+--
+Die Library erleichtert die Modellierung von Daten.
+Dabei entsteht ein String der die gewünschten Daten enthält, inklusive zusätzlicher Informationen.
+Dieser String kann wie gehabt gesendet werden.
+Die Kommunikation findet nach wie vor über die gegebenen mittel statt.
+Auf der Empfängerseite wird der String interpretiert und sämtliche Informationen können mit gegebenen Methoden nach bedarf extrahiert werden.
+
+h2. _Why should I use the Library? / Warum sollte ich die Library nutzen?_
+
+The library supports you in communication.
+The library brings with useful methods for you to facilitate the communication, some obvious things.
+Full control is still given.
+Due to the simple design, the library is compatible with many platforms.
+--
+Die Library unterstützt dich bei der Kommunikation.
+Die Library bringt hilfreiche Methoden mit um dir einige offensichtliche dinge der Kommunikation zu erleichtern.
+Die volle Kontrolle ist nach wie vor gegeben.
+Durch das einfache Design ist die Library kompatibel zu vielen Plattformen.
+
+h2. _Structure / Aufbau_
+
+h3. Message
+
+|_. authDelimiter|_. Command Status<br/>a&#124;b&#124;c&#124;d&#124;e&#124;f|_. wrapDelimiter|_. Data|_. dataDelimiter|_. Checksum<br/>md5(Data)|_. authDelimiter|
+|=. ?|=. 1&#124;1&#124;0&#124;0&#124;0&#124;99|=. #|=. 123&#124;abc|=. %|=. 6f2ed7c3cfa1b2b35abefd87ea754e6d|=. ?|
+
+h3. Command Status
+
+|_. Version<br/>a|_. ID<br/>b|_. Succeed<br/>c|_. Failed<br/>d|_. Acknowledgement<br/>e|_. Task<br/>f|
+|=. 1|=. 1|=. 0|=. 0|=. 0|=. 99|
+
+h2. _Features_
+
+Messages are checked for completeness.
+The transmitted data can be checked for correctness (MD5).
+Messages can be Identified.
+Context can be built using their own methods or functions.
+It is possible to transmit a Command status even without data. This ensures short messages.
+For communication is only "version", "id" and "task" need. The rest is optional.
+The following can be optionally sent via the Command Status:
+* Succeed Flag
+* Failed Flag
+* Acknowledgement Flag
+
+Data can be integrated for each message.
+Adaptable for many platforms.
+--
+Nachrichten werden auf Vollständigkeit geprüft.
+Die Übermittelten Daten sind auf Korrektheit hin überprüfbar (MD5).
+Nachrichten können Identifiziert werden.
+Kontext kann mithilfe von eigenen Methoden oder Funktionen aufgebaut werden.
+Es ist möglich einen Command Status selbst ohne Daten zu übermitteln. Das sorgt für kurze Nachrichten.
+Für eine Kommunikation ist lediglich "Version", "ID" und "Task" Notwendig. Der Rest ist optional.
+Folgendes kann optional über den Command Status übermittelt werden:
+* Succeed Flag
+* Failed Flag
+* Acknowledgement Flag
+
+Daten können für jeder Nachricht integriert werden.
+Adaptierbar für viele Plattformen.
