@@ -1,6 +1,6 @@
 h1. MessageCom
 
-Version 0.1
+Version 0.1 Implementation as Arduino Library
 
 h2. _What is it? / Was ist das?_
 
